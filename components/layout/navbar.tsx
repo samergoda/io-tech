@@ -264,8 +264,13 @@ export default function Navbar() {
                 />
               </form>
 
-              {/* Mobile Language Toggle */}
-              <ToggleLanguage />
+              <div className="flex gap-4 px-3 py-2 items-center justify-between">
+                {/* Mobile Language Toggle */}
+                <ToggleLanguage />
+
+                {/* Toggle theme */}
+                <ModeToggle />
+              </div>
 
               {/* Mobile Book Appointment */}
               <div className="px-3 py-2">

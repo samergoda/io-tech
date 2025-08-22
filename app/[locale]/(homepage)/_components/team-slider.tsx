@@ -28,15 +28,21 @@ export default function TeamSlider({ members }: Props) {
         }}
         className="w-full"
       >
-        <CarouselContent className="">
+        <CarouselContent>
           {members.map((member) => (
             <CarouselItem key={member.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
               {/* Carousel card */}
-              <Card className="overflow-hidden border-none bg-transparent shadow-none h-full">
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+              <Card className="overflow-hidden border-none bg-transparent p-0 shadow-none h-full">
+                <CardContent className="lg:p-6 flex flex-col items-center text-center h-full">
                   {/* Avatar */}
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-64 md:h-44 relative  overflow-hidden">
-                    <Image src={member.image} alt={member.name} fill className="object-cover" />
+                  <div className="relative  overflow-hidden">
+                    <Image
+                      src={member.image}
+                      width={200}
+                      height={0}
+                      alt={member.name}
+                      className="object-cover"
+                    />
                   </div>
 
                   {/* Info */}
