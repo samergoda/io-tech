@@ -3,15 +3,15 @@ import { searchMembers, searchServices } from "@/lib/api/strapi";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-type SearchPageProps = {
-  searchParams?: { q?: string };
-};
+interface SearchPageProps {
+  searchParams: Promise<{ q?: string }>;
+}
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   // Translation
   const t = await getTranslations();
 
-  const query = searchParams?.q || "";
+  const { q: query } = await searchParams; //
 
   // Fetch data on the server
   const [teamData, serviceData] = query
