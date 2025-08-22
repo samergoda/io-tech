@@ -11,8 +11,11 @@ interface Constriction {
   items?: string[];
 }
 
-export default async function ServicePage({ params }: { params: { id: string | string[] } }) {
-  const id = Array.isArray(params.id) ? params.id[0] : params.id; // normalize id
+// Update the params type to be a Promise
+export default async function ServicePage({ params }: { params: Promise<{ id: string }> }) {
+  // Await the params promise
+  const { id } = await params;
+
   const { data: service } = await fetchServiceById(id);
   const t = await getTranslations();
 
@@ -35,6 +38,7 @@ export default async function ServicePage({ params }: { params: { id: string | s
           {/* Page Title */}
           <h1 className="text-3xl font-bold text-main-color mb-6">{service.title}</h1>
 
+          {/* Description */}
           <p className="text-gray-700 leading-relaxed mb-8 text-base">{service.description}</p>
 
           {/* Service Sections */}
