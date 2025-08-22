@@ -33,7 +33,7 @@ export default async function TestimonialSlider() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 dark:text-black">
             {t("testimonial-title")}
           </h2>
-          <p className="text-base dark:text-black md:text-lg max-w-2xl leading-relaxed">
+          <p className="text-lg dark:text-black md:text-lg max-w-2xl leading-relaxed">
             {t("testimonial-desc")}
           </p>
         </div>
@@ -64,7 +64,7 @@ export default async function TestimonialSlider() {
 
                   {/* Text Content */}
                   <div className="w-full h-full flex flex-col justify-between text-center lg:text-left">
-                    <p className="text-xl leading-relaxed mb-12 dark:text-black">
+                    <p className="text-2xl leading-relaxed mb-12 dark:text-black">
                       &quot;{member.description}&quot;
                     </p>
 

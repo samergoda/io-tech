@@ -59,7 +59,7 @@ export default function Navbar() {
     <nav
       aria-label="Main navigation"
       className={`fixed w-full z-50 text-white transition-colors duration-300 top-0 ${
-        scrolled ? "bg-main-color shadow-md" : "lg:bg-transparent bg-main-color shadow-md"
+        scrolled ? "bg-main-color" : "lg:bg-transparent bg-main-color"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +80,7 @@ export default function Navbar() {
                   <Link href="/" className=" transition-colors px-3 py-2"></Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/about" className=" transition-colors px-3 py-2">
+                  <Link href="/" className=" transition-colors px-3 py-2">
                     {t("about-us")}
                   </Link>
                 </NavigationMenuItem>
@@ -111,17 +111,17 @@ export default function Navbar() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/blog" className="text-white  transition-colors px-3 py-2">
+                  <Link href="/" className="text-white  transition-colors px-3 py-2">
                     {t("blog")}
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/team" className="text-white  transition-colors px-3 py-2">
+                  <Link href="/" className="text-white  transition-colors px-3 py-2">
                     {t("our-team")}
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/contact" className="text-white  transition-colors px-3 py-2">
+                  <Link href="/" className="text-white  transition-colors px-3 py-2">
                     {t("contact-us")}
                   </Link>
                 </NavigationMenuItem>
@@ -130,7 +130,11 @@ export default function Navbar() {
           </div>
 
           {/* Right Side Controls (Desktop) */}
-          <div className="hidden md:flex items-center space-x-4 flex-1 justify-end">
+          <div
+            className={` ${
+              isOpen ? "flex-1" : ""
+            } hidden md:flex items-center space-x-4  justify-end`}
+          >
             {/* Search */}
             <div className={`relative ${isOpen ? "flex-1 mx-4" : ""}`}>
               {isOpen ? (
@@ -206,7 +210,7 @@ export default function Navbar() {
               </Link>
               <Link
                 className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors"
-                href="/about"
+                href="/"
               >
                 {t("about-us")}
               </Link>
@@ -232,19 +236,19 @@ export default function Navbar() {
 
               <Link
                 className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors"
-                href="/blog"
+                href="/"
               >
                 {t("blog")}
               </Link>
               <Link
                 className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors"
-                href="/team"
+                href="/"
               >
                 {t("our-team")}
               </Link>
               <Link
                 className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors"
-                href="/contact"
+                href="/"
               >
                 {t("contact-us")}
               </Link>

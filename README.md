@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js + Strapi Website
 
-## Getting Started
+A modern, multilingual, and fully responsive website built with **Next.js**, styled with **Tailwind CSS**, and powered by **Strapi CMS**.  
+It includes dynamic content management, dark mode, RTL (Arabic), form handling, and optimized performance.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📌 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔹 Frontend (Next.js + Tailwind + Shadcn)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Responsive Navbar** with dropdown menu for Services.
+- **Search functionality** with categorized results (Team, Services).
+- **Hero section** with image/video slider from Strapi.
+- **Our Team** showcase with members from Strapi.
+- **Clients** showcase with logos/testimonials.
+- **Footer** with subscription form (Formik + Yup validation).
+- **Dark Mode** with `next-themes`.
+- **Multilingual support** (EN/AR) with `next-intl`, including RTL for Arabic.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔹 Backend (Strapi CMS)
 
-## Learn More
+- Services management (`/services`).
+- Team members (`/members`).
+- Hero sliders (`/hero-sliders`).
+- Clients (`/clients`).
+- Subscriptions API (`/subscribers`).
 
-To learn more about Next.js, take a look at the following resources:
+### 🔹 State Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Redux Toolkit** for:
+  - Search queries.
+  - Language selection.
+  - Subscription form states.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔹 Form Handling
 
-## Deploy on Vercel
+- **Formik + Yup** → subscription form validation.
+- **POST request to Strapi** for subscribers.
+- Duplicate email handling with error messages.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔹 Performance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **next/image** for optimized images.
+- **SSG/ISR** for services, team, and clients pages.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/)
+- **Backend**: [Strapi CMS](https://strapi.io/)
+- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
+- **Forms & Validation**: [Formik](https://formik.org/), [Yup](https://github.com/jquense/yup), [React Hook Form](https://react-hook-form.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Internationalization**: [next-intl](https://next-intl-docs.vercel.app/)
+- **Dark Mode**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **Icons**: [Lucide React](https://lucide.dev/), [React Icons](https://react-icons.github.io/react-icons/)
+- **Carousel/Sliders**: [Embla Carousel](https://www.embla-carousel.com/)
+
+---
