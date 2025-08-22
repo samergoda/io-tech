@@ -22,20 +22,20 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const services = serviceData.data || [];
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl mb-4">
+    <div className="p-6 mt-32">
+      <h1 className="text-2xl mb-4 dark:text-white">
         {t("search-results")}: <span className="font-semibold">{query}</span>
       </h1>
 
       {/* Teams */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold mb-2">{t("team")}</h2>
+        <h2 className="text-xl font-bold mb-2 dark:text-white">{t("team")}</h2>
         {teams.length ? (
           <ul className="flex items-center flex-wrap gap-5">
             {teams.map((t: Member) => (
               <li
                 key={t.id}
-                className="flex flex-col text-center justify-center items-center space-x-4"
+                className="flex dark:text-white flex-col text-center justify-center items-center space-x-4"
               >
                 <Image
                   src={t.image || ""}
@@ -45,14 +45,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   className="object-contain rounded"
                 />
                 <div>
-                  <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-gray-400">{t.position}</p>
+                  <p className="font-semibold dark:text-white">{t.name}</p>
+                  <p className="text-sm dark:text-white text-gray-400">{t.position}</p>
                 </div>
               </li>
             ))}
           </ul>
         ) : (
-          <p>{t("no-team-members-found")}</p>
+          <p className="text-white dark:text-white">{t("no-team-members-found")}</p>
         )}
       </div>
 

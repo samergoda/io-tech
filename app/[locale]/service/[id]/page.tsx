@@ -22,7 +22,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
   if (!service) return <NotService />;
 
   return (
-    <div className="min-h-screen bg-[url('/Bitmap.png')]  py-8">
+    <div className="min-h-screen bg-[url('/Bitmap.png')] mt-32 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <Link
@@ -36,25 +36,35 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
         {/* Main Content */}
         <div className=" rounded-lg  p-8">
           {/* Page Title */}
-          <h1 className="text-3xl font-bold text-main-color mb-6">{service.title}</h1>
+          <h1 className="text-3xl font-bold text-main-color dark:text-white mb-6">
+            {service.title}
+          </h1>
 
           {/* Description */}
-          <p className="text-gray-700 leading-relaxed mb-8 text-base">{service.description}</p>
+          <p className="text-gray-700 dark:text-white leading-relaxed mb-8 text-base">
+            {service.description}
+          </p>
 
           {/* Service Sections */}
           {service.constrictions?.map((constriction: Constriction) => (
             <div key={constriction.id} className="mb-8">
-              <h2 className="text-xl font-semibold text-main-color mb-4">{constriction.title}</h2>
+              <h2 className="text-xl font-semibold text-main-color dark:text-white mb-4">
+                {constriction.title}
+              </h2>
 
-              <div className="flex items-start border-l pl-8 mb-4">
+              <div className="flex items-start  border-l-2 pl-8 mb-4">
                 <div className="w-2 h-2 bg-main-color rounded-none mt-2 mr-4 flex-shrink-0"></div>
-                <p className="text-custom-black leading-relaxed">{constriction.description}</p>
+                <p className="text-custom-black leading-relaxed dark:text-white">
+                  {constriction.description}
+                </p>
               </div>
 
               {/* Advisory Services List */}
               {constriction.items && constriction.items.length > 0 && (
                 <div className="ml-6">
-                  <p className="text-gray-700 font-medium mb-3">Our advisory services about:</p>
+                  <p className="text-gray-700 font-medium mb-3">
+                    {t("our-advisory-services-about")}:
+                  </p>
                   <ul className="space-y-2">
                     {constriction.items.map((item, index) => (
                       <li key={index} className="flex items-start">
@@ -70,7 +80,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
 
           {/* Closing Statement */}
           <div className="border-t pt-6 mt-8">
-            <p className="text-gray-700 leading-relaxed">{t("service-statment")}</p>
+            <p className="text-gray-700 dark:text-white leading-relaxed">{t("service-statment")}</p>
           </div>
         </div>
       </div>

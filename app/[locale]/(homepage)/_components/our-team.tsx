@@ -10,13 +10,15 @@ export default async function OurTeam() {
   const { data: team } = await fetchTeam();
 
   return (
-    <section className="bg-custom-gray py-28">
+    <section className="bg-custom-gray dark:bg-black py-28">
       <div>
         <div className="text-center mb-20">
           {/* Title */}
-          <h2 className="text-4xl font-bold text-main-color capitalize">{t("our-team")}</h2>
+          <h2 className="text-4xl font-bold text-main-color capitalize dark:text-white">
+            {t("our-team")}
+          </h2>
           {/* Description */}
-          <p className="text-custom-black mt-4 text-lg">{t("our-team-desc")}</p>
+          <p className="text-custom-black dark:text-white mt-4 text-lg">{t("our-team-desc")}</p>
         </div>
       </div>
 

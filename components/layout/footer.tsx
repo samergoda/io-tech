@@ -7,10 +7,16 @@ export default function Footer() {
   // Translation
   const t = useTranslations();
 
-  const navigationLinks = [t("about-us"), t("our-strategy"), t("our-advantages"), t("social-responsibility"), t("our-services")];
+  const navigationLinks = [
+    t("about-us"),
+    t("our-strategy"),
+    t("our-advantages"),
+    t("social-responsibility"),
+    t("our-services"),
+  ];
 
   return (
-    <footer className="bg-main-color text-white px-6 lg:px-20 xl:px-28 pt-6 lg:pt-8 xl:pt-16 pb-10 mt-6">
+    <footer className="bg-main-color text-white dark:text-black px-6 lg:px-20 xl:px-28 pt-6 lg:pt-8 xl:pt-16 pb-10 mt-6">
       {/* Subscription form */}
       <div className=" mx-auto flex flex-col md:flex-row items-center justify-end gap-6 mb-9">
         {/* Email Subscription Form */}
@@ -24,15 +30,19 @@ export default function Footer() {
 
           {/* Social Media Icons */}
           <div className="flex gap-2">
-            <a href="#" className="hover: transition-colors duration-200" aria-label="Twitter">
-              <FaTwitter size={16} className="text-white" />
-            </a>
-            <a href="#" className="hover: transition-colors duration-200" aria-label="Facebook">
-              <FaFacebookF size={16} className="text-white" />
-            </a>
-            <a href="#" className="hover: transition-colors duration-200" aria-label="Google Plus">
-              <FaGooglePlusG size={16} className="text-white" />
-            </a>
+            <Link href="#" className="hover: transition-colors duration-200" aria-label="Twitter">
+              <FaTwitter size={16} className="text-white dark:text-black" />
+            </Link>
+            <Link href="#" className="hover: transition-colors duration-200" aria-label="Facebook">
+              <FaFacebookF size={16} className="text-white dark:text-black" />
+            </Link>
+            <Link
+              href="#"
+              className="hover: transition-colors duration-200"
+              aria-label="Google Plus"
+            >
+              <FaGooglePlusG size={16} className="text-white dark:text-black" />
+            </Link>
           </div>
         </div>
       </div>

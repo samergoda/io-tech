@@ -4,7 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 .bg-custom-gradient__hero {
-  background: linear-gradient(271.47deg, rgba(75, 38, 21, 0.28) 1.2%, rgba(75, 38, 21, 0.68) 86.38%);
+  background: linear-gradient(
+    271.47deg,
+    rgba(75, 38, 21, 0.28) 1.2%,
+    rgba(75, 38, 21, 0.68) 86.38%
+  );
 }
 
 @theme inline {

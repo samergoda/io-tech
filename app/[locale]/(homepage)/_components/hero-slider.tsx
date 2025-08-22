@@ -50,11 +50,16 @@ export default function HeroSlider({ heroAssets }: HeroSliderProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}>
+          transition={{ duration: 0.8 }}
+        >
           {/* Left content */}
           <div className="xl:flex-1 max-w-2xl text-white text-center ltr:text-left rtl:text-right">
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4">{currentAsset.title}</h1>
-            <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">{currentAsset.info || currentAsset.description}</p>
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 dark:text-black">
+              {currentAsset.title}
+            </h1>
+            <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed dark:text-black">
+              {currentAsset.info || currentAsset.description}
+            </p>
             <button className="bg-white text-main-color px-6 sm:px-8 py-2 sm:py-3 rounded-2xl font-medium hover:bg-white/90 transition-colors">
               {t("read-more")}
             </button>
@@ -90,8 +95,9 @@ export default function HeroSlider({ heroAssets }: HeroSliderProps) {
         <button
           aria-label="Go to next slide"
           onClick={() => setCurrent((prev) => (prev - 1 + heroAssets.length) % heroAssets.length)}
-          className="p-1 bg-transparent rounded-full mb-20">
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          className="p-1 bg-transparent rounded-full mb-20 dark:text-black"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-black" />
         </button>
         {heroAssets.map((_, i) => (
           <button
@@ -100,7 +106,9 @@ export default function HeroSlider({ heroAssets }: HeroSliderProps) {
             onClick={() => setCurrent(i)}
             className={cn(
               "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all",
-              i === current ? "bg-white" : "bg-transparent border-2 border-white"
+              i === current
+                ? "bg-white dark:bg-black"
+                : "bg-transparent border-2 border-white dark:text-black dark:border-black"
             )}
           />
         ))}

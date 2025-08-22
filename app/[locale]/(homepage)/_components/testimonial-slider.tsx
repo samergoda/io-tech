@@ -30,10 +30,12 @@ export default async function TestimonialSlider() {
       <div className="container mx-auto">
         {/* Header */}
         <div className="pb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 dark:text-black">
             {t("testimonial-title")}
           </h2>
-          <p className="text-base md:text-lg max-w-2xl leading-relaxed">{t("testimonial-desc")}</p>
+          <p className="text-base dark:text-black md:text-lg max-w-2xl leading-relaxed">
+            {t("testimonial-desc")}
+          </p>
         </div>
 
         {/* Carousel */}
@@ -62,15 +64,15 @@ export default async function TestimonialSlider() {
 
                   {/* Text Content */}
                   <div className="w-full h-full flex flex-col justify-between text-center lg:text-left">
-                    <p className="text-xl leading-relaxed mb-12 ">
+                    <p className="text-xl leading-relaxed mb-12 dark:text-black">
                       &quot;{member.description}&quot;
                     </p>
 
-                    <div className="space-y-2 xl:mt-24 rtl:text-start">
-                      <h3 className="text-2xl md:text-3xl font-semibold text-white">
+                    <div className="space-y-2 xl:mt-24 ltr:text-start rtl:text-start">
+                      <h3 className="text-2xl md:text-3xl font-semibold text-white dark:text-black">
                         {member.name}
                       </h3>
-                      <p className="text-lg md:text-x mt-5">{member.position}</p>
+                      <p className="text-lg md:text-x mt-5 dark:text-black">{member.position}</p>
                     </div>
                   </div>
                 </div>
@@ -80,11 +82,11 @@ export default async function TestimonialSlider() {
 
           {/* Navigation Arrows */}
           <div className="absolute bottom-6 flex gap-3 ltr:right-6 rtl:left-6">
-            <CarouselPrevious className="static w-12 h-12 rounded-full bg-white/90 text-amber-900 hover:bg-white hover:scale-105 transition-all duration-200 shadow-lg rtl:[&>svg]:rotate-180">
+            <CarouselPrevious className="static w-12 h-12 rounded-full dark:text-black bg-white/90 text-amber-900 hover:bg-white hover:scale-105 transition-all duration-200 shadow-lg rtl:[&>svg]:rotate-180">
               <ArrowLeft />
             </CarouselPrevious>
 
-            <CarouselNext className="static w-12 h-12 rounded-full bg-white/90 text-amber-900 hover:bg-white hover:scale-105 transition-all duration-200 shadow-lg rtl:[&>svg]:rotate-180">
+            <CarouselNext className="static w-12 h-12 rounded-full dark:text-black bg-white/90 text-amber-900 hover:bg-white hover:scale-105 transition-all duration-200 shadow-lg rtl:[&>svg]:rotate-180">
               <ArrowRight />
             </CarouselNext>
           </div>

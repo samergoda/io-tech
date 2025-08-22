@@ -1,9 +1,15 @@
 "use client";
 
-import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { Globe, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
-import { Globe } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 import { initializeFromLocale, setLanguage } from "@/lib/redux/features/language/languageSlice";
@@ -17,27 +23,38 @@ export default function ToggleLanguage() {
   const dispatch = useDispatch();
   const locale = useLocale();
 
-  // ✅ read language from Redux only
+  // Read language from Redux only
   const { currentLanguage } = useSelector((state: RootState) => state.language);
 
-  const handleToggle = () => {
-    const nextLang = currentLanguage === "en" ? "ar" : "en";
+  const handleChange = (lang: "en" | "ar") => {
+    // Update redux store
+    dispatch(setLanguage(lang));
 
-    // update redux store
-    dispatch(setLanguage(nextLang));
-
-    // push new locale to Next.js router
-    router.push(`${pathname}?${searchParams.toString()}`, { locale: nextLang });
+    // Push new locale to Next.js router
+    router.push(`${pathname}?${searchParams.toString()}`, { locale: lang });
   };
+
   useEffect(() => {
     // Initialize Redux state with current locale
     dispatch(initializeFromLocale(locale));
   }, [locale, dispatch]);
 
   return (
-    <Button variant="ghost" size="sm" onClick={handleToggle} className="text-white hover:bg-white/10 flex items-center space-x-1">
-      <Globe className="h-4 w-4" />
-      <span>{currentLanguage.toUpperCase()}</span>
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-white  hover:bg-white/10 flex items-center space-x-1"
+        >
+          <span>{currentLanguage.toUpperCase()}</span>
+          <ChevronDown className="h-3 w-3 ml-1" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-28">
+        <DropdownMenuItem onClick={() => handleChange("en")}>English</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleChange("ar")}>العربية</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
