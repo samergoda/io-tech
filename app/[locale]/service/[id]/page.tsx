@@ -11,8 +11,9 @@ interface Constriction {
   items?: string[];
 }
 
-export default async function ServicePage({ params }: { params: { id: string } }) {
-  const { data: service } = await fetchServiceById(params.id);
+export default async function ServicePage({ params }: { params: { id: string | string[] } }) {
+  const id = Array.isArray(params.id) ? params.id[0] : params.id; // normalize id
+  const { data: service } = await fetchServiceById(id);
   const t = await getTranslations();
 
   if (!service) return <NotService />;
@@ -21,7 +22,10 @@ export default async function ServicePage({ params }: { params: { id: string } }
     <div className="min-h-screen bg-[url('/Bitmap.png')]  py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
-        <Link href="/" className="flex gap-1 items-end text-gray-600 hover:text-main-color mb-8 transition-colors">
+        <Link
+          href="/"
+          className="flex gap-1 items-end text-gray-600 hover:text-main-color mb-8 transition-colors"
+        >
           <ArrowLeft className="w-4 h-4 mr-2 rtl:rotate-180" />
           {t("back")}
         </Link>
@@ -31,7 +35,6 @@ export default async function ServicePage({ params }: { params: { id: string } }
           {/* Page Title */}
           <h1 className="text-3xl font-bold text-main-color mb-6">{service.title}</h1>
 
-          {/* Description */}
           <p className="text-gray-700 leading-relaxed mb-8 text-base">{service.description}</p>
 
           {/* Service Sections */}
