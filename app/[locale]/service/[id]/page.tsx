@@ -22,7 +22,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
   if (!service) return <NotService />;
 
   return (
-    <div className="min-h-screen bg-[url('/Bitmap.png')] mt-32 py-8">
+    <div className="min-h-screen bg-[url('/Bitmap.png')] mt-32 md:mt-0 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <Link

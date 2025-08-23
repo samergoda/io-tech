@@ -58,7 +58,7 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed w-full z-50 text-white transition-colors duration-300 top-0 ${
+      className={`fixed w-full z-50 text-white transition-colors duration-300  ${
         scrolled ? "bg-main-color" : "lg:bg-transparent bg-main-color"
       }`}
     >
@@ -116,7 +116,7 @@ export default function Navbar() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/" className="text-white  transition-colors px-3 py-2">
+                  <Link href="/our-team" className="text-white  transition-colors px-3 py-2">
                     {t("our-team")}
                   </Link>
                 </NavigationMenuItem>
@@ -242,7 +242,7 @@ export default function Navbar() {
               </Link>
               <Link
                 className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors"
-                href="/"
+                href="/our-team"
               >
                 {t("our-team")}
               </Link>

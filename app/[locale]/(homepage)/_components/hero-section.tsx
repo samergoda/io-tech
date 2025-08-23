@@ -7,7 +7,7 @@ export default async function HeroSection() {
   const { data: heroAssets } = await fetchHeroAssets();
 
   return (
-    <div className="relative w-full mt-16 h-[850px] overflow-hidden bg-custom-gradient__hero">
+    <div className="relative w-full mt-16 lg:mt-0 h-[850px] overflow-hidden bg-custom-gradient__hero">
       {/* Background image */}
       {bgSection[0]?.type === "image" && bgSection[0]?.media && (
         <div

@@ -22,7 +22,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const services = serviceData.data || [];
 
   return (
-    <div className="p-6 mt-32">
+    <div className="p-6 mt-32 md:mt-0">
       <h1 className="text-2xl mb-4 dark:text-white">
         {t("search-results")}: <span className="font-semibold">{query}</span>
       </h1>
